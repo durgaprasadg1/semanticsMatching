@@ -1,0 +1,15 @@
+# Minimal Supabase CLI config for local dev (`supabase start`).
+# Fill in project_id once you've created the project on supabase.com and
+# run `supabase link`.
+project_id = "notegraph"
+
+[api]
+enabled = true
+port = 54321
+
+[db]
+port = 54322
+
+[studio]
+enabled = true
+port = 54323

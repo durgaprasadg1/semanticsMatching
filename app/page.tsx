@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 
-export default function Home() {
-  return (
-   <div>
-      Semantics matching application;
-   </div>
-  );
+// Landing route — bounces straight to the app or to login.
+export default async function HomePage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  redirect(user ? "/vault" : "/login");
 }
